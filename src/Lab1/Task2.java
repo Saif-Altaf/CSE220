@@ -5,8 +5,6 @@ class Task2 {
 
     //Complete this method so that it gives the Expected Output
     public static void mostWater(Integer[] height) {
-
-        //TO DO
         int maxArea = 0;
         int left = 0;
         int right = height.length - 1;

@@ -6,22 +6,22 @@ public class Task4 {
     public static Boolean assembleCongaLine(Node head) {
         Node temp = head;
         while (temp.next != null) {
-            if ((int)temp.elem > (int)temp.next.elem){
+            if ((int) temp.elem > (int) temp.next.elem) {
                 return false;
             }
             temp = temp.next;
         }
         return true;
-
-        //You're not suppose to create any new Linked List for this task
-
-        //TODO
-        //Hint: the Node elements are actually Object, you can type cast them
-        //      into int or Integer like the following:
-        //        (int)n.elem  or  (Integer)n.elem
-
-        //When you're ready to return the boolean remove the following line
     }
+    //You're not suppose to create any new Linked List for this task
+
+    //TODO
+    //Hint: the Node elements are actually Object, you can type cast them
+    //      into int or Integer like the following:
+    //        (int)n.elem  or  (Integer)n.elem
+
+    //When you're ready to return the boolean remove the following line
+
 
     //NOTE: if you find any issue with the driver code please inform AIB
     //DO NOT TOUCH THE DRIVER CODE BELOW

@@ -34,16 +34,7 @@ public class Task3 {
                 temp2 = temp2.next;
             }
         }
-
         return "Similar";
-
-        //You're not suppose to create any new Linked List for this task
-
-        //TODO
-
-        //Once you're ready to return the String delete the
-        //following line
-
     }
 
     //NOTE: if you find any issue with the driver code please inform AIB
