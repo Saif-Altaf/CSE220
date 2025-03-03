@@ -1,5 +1,4 @@
 package Lab2.SinglyLinkedList;
-// Task05: Alternate Merge
 public class Task1 {
 
     public static Node alternateMerge( Node head1, Node head2 ){
@@ -13,11 +12,6 @@ public class Task1 {
             temp1=temp1.next;
             temp2=temp2.next;
         }
-        //You’re NOT ALLOWED to create a new singly linked list for this task
-
-        //TO DO
-
-        //remove the following line when returning the Head of the modified LinkedList
         return head1;
     }
 

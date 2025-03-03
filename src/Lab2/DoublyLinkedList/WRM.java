@@ -3,7 +3,6 @@ package Lab2.DoublyLinkedList;
 public class WRM {
     Patient dh;
 
-    //The constructor is already created for you
     public WRM() {
         dh = new Patient(null, null, null, null, null, null);
         dh.next = dh;
@@ -11,7 +10,6 @@ public class WRM {
     }
 
     public void registerPatient(int id, String name, int age, String bloodgroup) {
-        // To Do
         Patient p = new Patient(id, name, age, bloodgroup, null, null);
         if (dh.next == dh) {
             dh.next = p;
@@ -33,7 +31,10 @@ public class WRM {
     }
 
     public void servePatient() {
-        // To do
+        if(canDoctorGoHome()){
+            System.out.println("No patient to be served");
+            return;
+        }
         Patient temp=dh.next;
         for (int i = 0; i < 1; i++) {
             temp=temp.next;
@@ -44,7 +45,10 @@ public class WRM {
     }
 
     public void showAllPatient() {
-        // To Do
+        if(canDoctorGoHome()){
+            System.out.println("No patient in the WRM");
+            return;
+        }
         Patient temp = dh.next;
         System.out.println("Patient id(s): ");
         while (temp.id != null) {
@@ -56,15 +60,13 @@ public class WRM {
     }
 
     public boolean canDoctorGoHome() {
-        // To Do
         if(dh.next==dh){
             return true;
         }
-        return false; // Delete this line once you're ready
+        return false;
     }
 
     public void cancelAll() {
-        // To Do
         dh.next=dh;
         dh.prev=dh;
         System.out.println("Waiting room cleared");
@@ -72,10 +74,27 @@ public class WRM {
 
 
     public void reverseTheLine() {
-        // To Do
-        Patient tempNext= dh.next;
-        dh.next= dh.prev;
-        dh.prev=tempNext;
+        if (dh.next == dh || dh.next.next == dh) {
+            System.out.println("Not enough patients to reverse.");
+            return;
+        }
+
+        Patient current = dh;
+        Patient temp = null;
+
+        while (true) {
+            temp = current.prev;
+            current.prev = current.next;
+            current.next = temp;
+
+            current = current.prev;
+
+            if (current == dh){
+                break;
+            }
+        }
+        dh.next = temp.prev;
+        System.out.println("Patient order reversed successfully.");
     }
 
 }

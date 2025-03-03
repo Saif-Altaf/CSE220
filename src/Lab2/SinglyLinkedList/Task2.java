@@ -1,6 +1,5 @@
 package Lab2.SinglyLinkedList;
 
-// Task04: Word Decoder
 public class Task2 {
 
     public static Node wordDecoder(Node head) {
@@ -36,17 +35,14 @@ public class Task2 {
             curr = after;
         }
         dHead.next=pre;
-
-
-        //You're suppose to create a new Dummy headed Singly Linked List in this method
-        //Dummy head is basically a head Node where the elem is null
-        // Node dHead = new Node(null, null); here the dHead is a Dummy Head
-
-        //TO DO
-
-        //remove the following line when you're ready to return the new head
         return dHead;
     }
+    //You're suppose to create a new Dummy headed Singly Linked List in this method
+    //Dummy head is basically a head Node where the elem is null
+    // Node dHead = new Node(null, null); here the dHead is a Dummy Head
+    //TO DO
+    //remove the following line when you're ready to return the new head
+
 
     //NOTE: if you find any issue with the driver code please inform AIB
     //DO NOT TOUCH THE DRIVER CODE BELOW
