@@ -4,6 +4,23 @@ class Task1{
     //Complete this method so that it gives the Expected Output
     public static void walkZigzag( Integer[][] matrix ){
 
+        for (int column = 0; column < matrix[0].length; column++) {
+            if(column==0 || column%2==0) {
+                for (int row = 0; row < matrix.length; row++) {
+                    if (row == 0 || row % 2 == 0) {
+                        System.out.print(matrix[row][column] + " ");
+                    }
+                }
+            }else{
+                for (int row = matrix.length-1; row >= 0; row--) {
+                    if (row % 2 != 0) {
+                        System.out.print(matrix[row][column] + " ");
+                    }
+                }
+            }
+            System.out.println();
+        }
+
         //For this task you don't need to create new arrays
 
         //TO DO
