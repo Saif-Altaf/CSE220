@@ -1,30 +1,21 @@
 // Task 04: Matrix Compression
 class Task4 {
 
-    //Complete this method so that it gives the Expected Output
     public static Integer[][] compressMatrix(Integer[][] matrix) {
-        Integer[][] newArray = new Integer[2][2];
-        for (int row = 0; row < newArray.length; row++) {
-            int sum = 0;
-
-            for (int i = 0; i < matrix.length; i++) {
-                int r = matrix.length / 2, c = matrix[0].length / 2;
-                for (int j = 0; j < matrix[0].length; j++) {
-                    while (r > 0 || c > 0) {
-                        sum += matrix[i][j];
-                    }
+        Integer[][] newArray = new Integer[matrix.length / 2][matrix[0].length / 2];
+        int i = 0;
+        for (int row = 0; row < matrix.length; row += 2) {
+            int j = 0;
+            for (int column = 0; column < matrix[0].length; column += 2) {
+                int sum = matrix[row][column] + matrix[row + 1][column] + matrix[row][column + 1] + matrix[row + 1][column + 1];
+                if (i < newArray.length) {
+                    newArray[i][j] = sum;
                 }
-
+                j++;
             }
-
-
+            i++;
         }
-        //For this task you'll need to create new 2D array
-
-        //TO DO
-
-        //remove the line below and return the newly created Compressed 2D matrix
-        return null;
+        return newArray;
     }
 
     //DO NOT CHANGE ANY DRIVER CODE BELOW THIS LINE

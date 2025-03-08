@@ -1,7 +1,6 @@
 // Task 03: Row Rotation Policy of BRACU Classroom
 class Task3 {
 
-    //Complete this method so that it gives the Expected Output
     public static Integer rowRotation(Integer examWeek, String[][] matrix) {
         for (int i = 0; i < 2; i++) {
             String[] temp = matrix[matrix.length - 1];
@@ -33,12 +32,6 @@ class Task3 {
             }
         }
         return 0;
-        //For this task you don"t need to create new arrays
-        //After rotation the Matrix should be printed inside the method
-        //Only the integer row number is to be returned
-
-        //TO DO
-
     }
 
     //DO NOT CHANGE ANY DRIVER CODE BELOW THIS LINE

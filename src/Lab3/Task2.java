@@ -1,7 +1,8 @@
 //Task 02: Decryption Process
 class Task2 {
 
-    //Complete this method so that it gives the Expected Output
+    //DO NOT CHANGE ANY DRIVER CODE BELOW THIS LINE
+
     public static Integer[] decryptMatrix(Integer[][] matrix) {
         Integer[] array = new Integer[matrix[0].length - 1];
         int i = array.length - 1;
@@ -16,19 +17,14 @@ class Task2 {
             i--;
         }
         return array;
-
-
-        //For this task you'll need to create new arrays
-        //we recommend you to use Integer type.
-        //example:  Integer[] array = new Integer[5]
-
-        //TO DO
-        //DELETE the following return statement when you're ready to return the 2D array
-
-
     }
+    //For this task you'll need to create new arrays
+    //we recommend you to use Integer type.
+    //example:  Integer[] array = new Integer[5]
 
-    //DO NOT CHANGE ANY DRIVER CODE BELOW THIS LINE
+    //TO DO
+    //DELETE the following return statement when you're ready to return the 2D array
+
     public static void main(String[] args) {
         Integer[][] matrix = {
                 {1, 3, 1},

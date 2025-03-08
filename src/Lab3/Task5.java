@@ -1,7 +1,6 @@
 // Task 05: Game Arena
 class Task5 {
 
-    //Complete this method so that it gives the Expected Output
     public static void playGame(Integer[][] arena) {
         int points = 0;
         for (int row = 0; row < arena.length; row++) {
@@ -39,10 +38,6 @@ class Task5 {
         } else {
             System.out.println("Points Gained: " + points + ". Your team is out.");
         }
-        //For this task you don't need to create any new 2D array
-        //just print the result inside the function
-
-        //TO DO
     }
 
     //DO NOT CHANGE ANY DRIVER CODE BELOW THIS LINE
