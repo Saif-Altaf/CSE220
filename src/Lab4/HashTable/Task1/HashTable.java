@@ -62,7 +62,16 @@ public class HashTable {
 
 	//you need to COMPLETE this method
     private int hashFunction( String key ){
-
+//his instance method takes a key-value pair (string, int), calculates the hashed index on key and returns the index.
+// This hash function takes consecutive two letters of the key string, concatenates their ascii values into an integer
+// and sums all the concatenated integers. Then it finds out the modulus of the summation (think for yourself with which
+// number should we mod the summation) as the hashed index.
+//For instance, for a string ‘Mortis’, the consecutive two letters are Mo, rt, is. The concatenated integer for
+//Mo is 77111 (Ascii of M is 77, o is 111);
+//rt is 114116 (Ascii of r is 114, t is 116);
+//‘is’ is 105115 (Ascii of i is 105, s is 115).
+//The  summation is = 77111+114116+105115
+//Mod the summation with ___ and return the answer as the hashed index.
         // TO DO !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         return Math.abs(key.hashCode())%ht.length; //remove this line
     }

@@ -1,6 +1,6 @@
 package Lab4.HashTable.Task2;
 public class FruitNode {
-    
+
     //the fruit array is the data of this node class
     //the first index should contain name of the fruit
     //the second index should contain the price of the fruit
@@ -13,5 +13,5 @@ public class FruitNode {
         this.next=null;
         // TO DO
     }
-    
+
 }

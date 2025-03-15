@@ -1,9 +1,9 @@
 package Lab4.HashTable.Task2;
 //DO NOT TOUCH THIS TESTER CLASS
 public class HashTableTester {
-    //DO NOT TOUCH THIS TESTER MAIN METHOD    
+    //DO NOT TOUCH THIS TESTER MAIN METHOD
     public static void main(String[] args){
-        
+
         //DO NOT TOUCH ANY CODE BELOW
         HashTable ht = new HashTable( 3 );
 

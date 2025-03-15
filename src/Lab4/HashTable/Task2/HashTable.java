@@ -46,7 +46,7 @@ public class HashTable {
                 }
             }
         }
-        // TO DO 
+        // TO DO
         return sum % ht.length; //remove this line
     }
 
@@ -55,27 +55,37 @@ public class HashTable {
     //then inserts it in the proper hashed index
     //If collision occurs resolve using the steps explained in the question
     public void insert(String key, Integer value) {
-        FruitNode node = new FruitNode(key, value);
         int index = hashFunction(key);
+//        if ((ht[index].fruit[0]).equals(key)) {
+//            ht[index].fruit[1] = value;
+//            return;
+//        }
+        FruitNode node = new FruitNode(key, value);
         if (ht[index] == null) {
             ht[index] = node;
             return;
         }
-        FruitNode current = ht[index];
-        FruitNode previous = null;
+        FruitNode current = ht[index].next;
+        FruitNode previous = ht[index];
+        if ((int) node.fruit[1] > (int) ht[index].fruit[1]) {
+            node.next = ht[index];
+            ht[index] = node;
+            return;
+        } else if ((int) node.fruit[1] < (int) ht[index].fruit[1]) {
+            ht[index].next = node;
+        }
         while (current != null) {
-            FruitNode after = current.next;
-            if ((int) node.fruit[1] > (int) ht[index].fruit[1]) {
-                node.next = ht[index];
-                ht[index] = node;
+
+            if (((int) node.fruit[1] < (int) previous.fruit[1]) && ((int) node.fruit[1] > (int) current.fruit[1])) {
+                previous.next = node;
+                node.next = current;
                 return;
             }
-            else {
-                if((int)current.fruit[1])
-                current.next=node;
-                node.next=after;
-                previous=current;
-                current=current.next;
+
+            previous = current;
+            current = current.next;
+            if (previous.next == null) {
+                previous.next = node;
             }
         }
 
