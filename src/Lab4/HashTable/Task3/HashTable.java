@@ -60,8 +60,7 @@ public class HashTable {
     //you need to COMPLETE this method
     //Complete this method first the write remove
     private int hashFunction(Integer key) {
-        // TO DO
-        return (key + 3) % 6;
+        return (key + 3) % ht.length;
     }
 
 
@@ -86,7 +85,6 @@ public class HashTable {
                 current = current.next;
             }
         }
-        // TO DO 
     }
 
 }

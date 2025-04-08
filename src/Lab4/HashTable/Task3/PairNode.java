@@ -9,7 +9,6 @@ public class PairNode {
         this.key=k;
         this.value=v;
         next=null;
-        // TO DO
     }
     
 }

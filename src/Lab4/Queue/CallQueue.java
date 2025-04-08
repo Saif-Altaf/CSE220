@@ -22,7 +22,6 @@ class CallQueue {
 
     //You have to write this method
     public void enqueueCall(int customerId, boolean isVip) {
-        // To Do
         if (isVip) {
             vipQueue.enqueue(customerId);
             System.out.println("Customer "+customerId+" added to VIP queue.");
@@ -34,7 +33,6 @@ class CallQueue {
 
     //You have to write this method
     public void dequeueCall() {
-        // To Do
         if(vipQueue.isEmpty() && regularQueue.isEmpty()){
             System.out.println("No calls in the queue.");
             return;
@@ -45,7 +43,6 @@ class CallQueue {
         } else {
             if (!vipQueue.isEmpty()) {
                 System.out.println("Processing VIP Customer "+vipQueue.dequeue()+".");
-
             }
         }
     }
@@ -76,7 +73,6 @@ class CallQueue {
             regularQueue.enqueue(tempRegular.dequeue());
         }
         System.out.print("NULL"+"\n");
-        // To Do
     }
 
     public static void main(String[] args) {
