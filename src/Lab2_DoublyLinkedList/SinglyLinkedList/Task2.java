@@ -1,0 +1,68 @@
+package Lab2_DoublyLinkedList.SinglyLinkedList;
+public class Task2 {
+
+    public static Node wordDecoder(Node head) {
+        Node dHead = new Node(null, null);
+        int length = 0;
+        Node temp = head;
+        while (temp != null) {
+            length++;
+            temp = temp.next;
+        }
+
+        int val = 13 % length;
+        temp = head;
+        int index = 0;
+        Node dummy = dHead;
+        while (temp != null) {
+            if (index != 0 && index % val == 0) {
+                Node node =new Node(temp.elem);
+                dummy.next=node;
+                dummy = dummy.next;
+            }
+            index++;
+            temp = temp.next;
+        }
+
+        Node pre=dHead.next;
+        Node curr=pre.next;
+        pre.next=null;
+        while(curr!=null) {
+            Node after = curr.next;
+            curr.next = pre;
+            pre = curr;
+            curr = after;
+        }
+        dHead.next=pre;
+        return dHead;
+    }
+    //You're suppose to create a new Dummy headed Singly Linked List in this method
+    //Dummy head is basically a head Node where the elem is null
+    // Node dHead = new Node(null, null); here the dHead is a Dummy Head
+    //TO DO
+    //remove the following line when you're ready to return the new head
+
+
+    //NOTE: if you find any issue with the driver code please inform AIB
+    //DO NOT TOUCH THE DRIVER CODE BELOW
+    public static void main(String[] args) {
+        System.out.println("==============Test Case 1=============");
+        Node head = LinkedList.createList(new Character[]{'B', 'M', 'D', 'T', 'N', 'O', 'A', 'P', 'S', 'C'});
+        System.out.print("Encoded Word: ");
+        LinkedList.printLL(head);
+        System.out.println("\nExpected output: null -> C -> A -> T");
+        Node result = wordDecoder(head);
+        System.out.println("Your output: ");
+        LinkedList.printLL(result); //This should print null -> C -> A -> T
+        System.out.println();
+        System.out.println("==============Test Case 2=============");
+        head = LinkedList.createList(new Character[]{'Z', 'O', 'T', 'N', 'X'});
+        System.out.print("Encoded Word: ");
+        LinkedList.printLL(head);
+        System.out.println("\nExpected output: null -> N");
+        result = wordDecoder(head);
+        System.out.println("Your output: ");
+        LinkedList.printLL(result); //This should print null -> N
+        System.out.println();
+    }
+}
