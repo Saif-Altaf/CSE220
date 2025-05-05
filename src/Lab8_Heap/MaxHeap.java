@@ -49,10 +49,10 @@ public class MaxHeap {
         } else if (rightChildIndex > size) {
             maxIndex = leftChildIndex;
         } else {
-            if(heapArray[leftChildIndex]>heapArray[rightChildIndex]){
+            if(heapArray[leftChildIndex]>=heapArray[rightChildIndex]){
                 maxIndex=leftChildIndex;
             }
-            if(heapArray[rightChildIndex]>heapArray[leftChildIndex]){
+            if(heapArray[rightChildIndex]>=heapArray[leftChildIndex]){
                 maxIndex=rightChildIndex;
             }
         }

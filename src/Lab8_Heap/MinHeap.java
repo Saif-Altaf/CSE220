@@ -30,7 +30,7 @@ public class MinHeap {
     }
 
     public int extractMin() {
-        if(size==0){
+        if (size == 0) {
             System.out.println("Cannot extract min value as heap Array is empty");
             return -1;
         }
@@ -46,33 +46,47 @@ public class MinHeap {
         var leftChildIndex = index * 2 + 1;
         var rightChildIndex = index * 2 + 2;
         var minIndex = index;
-        if (heapArray[leftChildIndex] < heapArray[rightChildIndex]) {
+        if (leftChildIndex > size) {
+            minIndex = index;
+        } else if (rightChildIndex > size) {
             minIndex = leftChildIndex;
         } else {
-            minIndex = rightChildIndex;
+            if (heapArray[leftChildIndex] <= heapArray[rightChildIndex]) {
+                minIndex = leftChildIndex;
+            }
+            if (heapArray[rightChildIndex] <= heapArray[leftChildIndex]) {
+                minIndex = rightChildIndex;
+            }
         }
-        while (heapArray[index] > heapArray[minIndex] && minIndex <= size) {
+        while (heapArray[index] > heapArray[minIndex] && minIndex < size) {
             var temp = heapArray[index];
             heapArray[index] = heapArray[minIndex];
             heapArray[minIndex] = temp;
             index = minIndex;
-            if (heapArray[index * 2 + 1] < heapArray[index * 2 + 2]) {
+            if (index * 2 + 1 > size) {
+                minIndex = index;
+            } else if (index * 2 + 2 > size) {
                 minIndex = index * 2 + 1;
             } else {
-                minIndex = index * 2 + 2;
+                if (heapArray[index * 2 + 1] < heapArray[index * 2 + 2]) {
+                    minIndex = index * 2 + 1;
+                }
+                if (heapArray[index * 2 + 2] < heapArray[index * 2 + 1]) {
+                    minIndex = index * 2 + 2;
+                }
             }
         }
     }
 
     public void sort() {
-        int [] sorted=new int[size];
-        int i=0;
-        while(size!=0) {
-            sorted[i++] = extractMin();
+        while (size > 0) {
+            heapArray[size - 1] = extractMin();
         }
-
-        for(int arr:sorted){
-            System.out.print(arr+" ");
+        for (int arr : heapArray) {
+            System.out.print(arr + " ");
         }
+    }
+    public int[] returnHeapArray(){
+        return heapArray;
     }
 }
