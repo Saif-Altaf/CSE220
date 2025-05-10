@@ -18,17 +18,20 @@ public class Task2 {
         if (root == null) {
             return "No Path Found";
         }
-        if(key== root.elem){
-            s+=root.elem;
+        s += root.elem + " ";
+        if (key == (Integer) root.elem) {
             return s;
         }
-        if(key<root.elem){
-            s+=root.elem+" ";
-            return findPath(root.left,key,s);
+        if (key < root.elem) {
+            return findPath(root.left, key, s);
         }
-        s+=root.elem+" ";
-        return findPath(root.right,key,s);
+        if (key > root.elem) {
+            return findPath(root.right, key, s);
+        }
+        return s;
     }
+
+
 //============================================================================
 
 }

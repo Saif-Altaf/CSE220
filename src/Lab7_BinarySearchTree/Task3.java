@@ -11,13 +11,14 @@ public class Task3 {
     public static Integer sumOfLeaves(BSTNode root, Integer sum) {
         // TO DO
         if (root == null) {
-            return sum;
+            return 0;
         }
-        if (root.left == null && root.right == null) {
+        if (root.right == null && root.left == null) {
             sum += root.elem;
             return sum;
         }
         return sumOfLeaves(root.left, sum) + sumOfLeaves(root.right, sum);
+
     }
     //===============================================================
 

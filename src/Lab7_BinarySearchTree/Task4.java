@@ -11,13 +11,13 @@ public class Task4 {
         return mirrorSum(root.left, root.right);
     }
 
-    private static Integer mirrorSum(BSTNode root1, BSTNode root2) {
-        if (root2 == null || root1 == null) {
+    private static Integer mirrorSum(BSTNode leftRoot, BSTNode rightRoot) {
+        if (leftRoot == null || rightRoot == null) {
             return 0;
         }
-         int sum = mirrorSum(root1.left, root2.right) + mirrorSum(root1.right, root2.left);
-        return sum + root1.elem + root2.elem;
+        return leftRoot.elem + rightRoot.elem+ mirrorSum(leftRoot.left, rightRoot.right)+ mirrorSum(leftRoot.right, rightRoot.left);
     }
+
     //===============================================================
 
 
