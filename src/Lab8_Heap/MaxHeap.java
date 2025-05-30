@@ -9,7 +9,7 @@ public class MaxHeap {
     }
 
     public void insert(int value) {
-        if (size == heapArray.length) {
+        if (isFull()) {
             throw new IllegalStateException("Array is full");
         }
         heapArray[size++] = value;
@@ -20,12 +20,16 @@ public class MaxHeap {
         var index = size - 1;
         var parentIndex = (index - 1) / 2;
         while (heapArray[index] > heapArray[parentIndex] && index > 0) {
-            var temp = heapArray[index];
-            heapArray[index] = heapArray[parentIndex];
-            heapArray[parentIndex] = temp;
-            index = (index - 1) / 2;
+            swap(index, parentIndex);
+            index = (index - 1) / 2;//index=parent's
             parentIndex = (index - 1) / 2;
         }
+    }
+
+    private void swap(int index, int secondIndex) {
+        var temp = heapArray[index];
+        heapArray[index] = heapArray[secondIndex];
+        heapArray[secondIndex] = temp;
     }
 
     public int extractMax() {
@@ -44,44 +48,47 @@ public class MaxHeap {
         var leftChildIndex = index * 2 + 1;
         var rightChildIndex = index * 2 + 2;
         var maxIndex = index;
-        if (leftChildIndex > size) {
+        if (leftChildIndex > size) { //no child exists
             maxIndex = index;
-        } else if (rightChildIndex > size) {
+        } else if (rightChildIndex > size) { //only left child exists
             maxIndex = leftChildIndex;
-        } else {
-            if(heapArray[leftChildIndex]>=heapArray[rightChildIndex]){
-                maxIndex=leftChildIndex;
+        } else { // both child exists
+            if (heapArray[leftChildIndex] >= heapArray[rightChildIndex]) {
+                maxIndex = leftChildIndex;
             }
-            if(heapArray[rightChildIndex]>=heapArray[leftChildIndex]){
-                maxIndex=rightChildIndex;
+            if (heapArray[rightChildIndex] >= heapArray[leftChildIndex]) {
+                maxIndex = rightChildIndex;
             }
         }
-        while (heapArray[index] < heapArray[maxIndex] && maxIndex < size ) {
-            var temp = heapArray[index];
-            heapArray[index] = heapArray[maxIndex];
-            heapArray[maxIndex] = temp;
+        while (heapArray[index] < heapArray[maxIndex] && maxIndex < size) {
+            swap(index, maxIndex);
             index = maxIndex;
             if (index * 2 + 1 > size) {
                 maxIndex = index;
             } else if (index * 2 + 2 > size) {
                 maxIndex = index * 2 + 1;
             } else {
-                if(heapArray[index * 2 + 1]>heapArray[index * 2 + 2]){
-                    maxIndex=index * 2 + 1;
+                if (heapArray[index * 2 + 1] > heapArray[index * 2 + 2]) {
+                    maxIndex = index * 2 + 1;
                 }
-                if(heapArray[index * 2 + 2]>heapArray[index * 2 + 1]){
-                    maxIndex=index * 2 + 2;
+                if (heapArray[index * 2 + 2] > heapArray[index * 2 + 1]) {
+                    maxIndex = index * 2 + 2;
                 }
             }
         }
     }
 
+    public boolean isFull() {
+        return size == heapArray.length;
+    }
+
     public void sort() {
-        while(size>0){
-            heapArray[size-1]=extractMax();
+        while (size > 0) {
+            heapArray[size - 1] = extractMax();
         }
         for (int arr : heapArray) {
             System.out.print(arr + " ");
         }
     }
 }
+
